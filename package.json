@@ -1,0 +1,29 @@
+{
+  "name": "react-user-list",
+  "version": "1.0.0",
+  "description": "ES6 + React.js powered user list interface",
+  "main": "index.js",
+  "scripts": {
+    "test": "karma start karma.conf.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://dmarchena@github.com/dmarchena/react-user-list.git"
+  },
+  "keywords": [
+    "react",
+    "es6"
+  ],
+  "author": "David Marchena",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/dmarchena/react-user-list/issues"
+  },
+  "homepage": "https://github.com/dmarchena/react-user-list#readme",
+  "devDependencies": {
+    "karma": "^0.13.11",
+    "karma-jasmine": "^0.3.6",
+    "karma-jshint-preprocessor": "0.0.6",
+    "karma-phantomjs-launcher": "^0.2.1"
+  }
+}
