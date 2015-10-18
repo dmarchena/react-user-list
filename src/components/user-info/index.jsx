@@ -1,5 +1,5 @@
-import React from 'react'  
-import UserAvatar from '../user-avatar'
+import React from 'react'; 
+import UserAvatar from '../user-avatar';
 
 class UserInfo extends React.Component {
 
@@ -19,4 +19,4 @@ class UserInfo extends React.Component {
 
 }
 
-export default UserInfo  
+export default UserInfo;
