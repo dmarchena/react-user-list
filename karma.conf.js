@@ -10,17 +10,14 @@ module.exports = function(config) {
 
     // frameworks to use
     // available frameworks: https://npmjs.org/browse/keyword/karma-adapter
-    frameworks: ['jasmine'],
-    
-    jshintPreprocessor: {
-      jshintrc: './.jshintrc'
-    },
+    frameworks: ['browserify', 'jasmine'],
 
 
     // list of files / patterns to load in the browser
     files: [
-      'src/**/*.js',
-      'test/**/*.spec.js'
+        './node_modules/phantomjs-polyfill/bind-polyfill.js',
+        'src/**/*.js',
+        'test/**/*.js'
     ],
 
 
@@ -32,9 +29,31 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-        '*.js': ['jshint']
+        'src/**/*.js': ['browserify', 'jshint'],
+        'src/**/*.jsx': ['browserify', 'jshint'],
+        'test/**/*.spec.js': ['browserify', 'jshint']
     },
 
+    browserify: {
+        debug: true,
+        extensions: ['.js', '.jsx'],
+        transform: ['babelify']
+    },
+
+    watchify: {
+      poll: true
+    },
+
+    jshintPreprocessor: {
+        jshintrc: './.jshintrc'
+    },
+
+    plugins: [
+        'karma-browserify',
+        'karma-jasmine',
+        'karma-jshint-preprocessor',
+        'karma-phantomjs-launcher'
+    ],
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
@@ -56,7 +75,7 @@ module.exports = function(config) {
 
 
     // enable / disable watching file and executing tests whenever any file changes
-    autoWatch: false,
+    autoWatch: true,
 
 
     // start these browsers
@@ -66,6 +85,7 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: true
+    singleRun: false
+
   })
 }
