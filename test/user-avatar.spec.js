@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react/lib/ReactDOM';
 import TestUtils from 'react/lib/ReactTestUtils';
-import UserAvatar from '../src/components/user-avatar';
+import UserAvatar from '../src/js/components/user-avatar';
 
 describe('UserAvatar', () => {
   let component = null;

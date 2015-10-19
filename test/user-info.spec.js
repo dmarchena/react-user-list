@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react/lib/ReactDOM';
 import TestUtils from 'react/lib/ReactTestUtils';
-import UserInfo from '../src/components/user-info';
+import UserInfo from '../src/js/components/user-info';
 
 describe('UserInfo', () => {
   const user = {

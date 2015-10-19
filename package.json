@@ -4,6 +4,7 @@
   "description": "ES6 + React.js powered user list interface",
   "main": "index.js",
   "scripts": {
+    "mocks": "dyson mocksServer",
     "test": "karma start karma.conf.js"
   },
   "repository": {
@@ -23,12 +24,19 @@
   "devDependencies": {
     "babelify": "^6.3.0",
     "browserify": "^11.2.0",
+    "dyson-generators": "^0.1.1",
+    "gulp": "^3.9.0",
+    "gulp-sourcemaps": "^1.6.0",
+    "gulp-uglify": "^1.4.2",
+    "gulp-webserver": "^0.9.1",
     "karma": "^0.13.11",
     "karma-browserify": "^4.4.0",
     "karma-jasmine": "^0.3.6",
     "karma-jshint-preprocessor": "0.0.6",
     "karma-phantomjs-launcher": "^0.2.1",
-    "phantomjs-polyfill": "0.0.1"
+    "phantomjs-polyfill": "0.0.1",
+    "vinyl-buffer": "^1.0.0",
+    "vinyl-source-stream": "^1.1.0"
   },
   "dependencies": {
     "react": "^0.14.0"
