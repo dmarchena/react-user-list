@@ -13,9 +13,11 @@ describe('UserInfo', () => {
       domNode = null;
   
   beforeEach(() => {
+    /* jshint ignore:start */
     component = TestUtils.renderIntoDocument(<UserInfo user={user} />);
+    /* jshint ignore:end */
     domNode = null;
-  })
+  });
 
   it('should be a section', () => {
     expect(ReactDOM.findDOMNode(component).tagName).toEqual('SECTION');

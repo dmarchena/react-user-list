@@ -29,9 +29,9 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-        'src/**/*.js': ['browserify', 'jshint'],
-        'src/**/*.jsx': ['browserify', 'jshint'],
-        'test/**/*.spec.js': ['browserify', 'jshint']
+        'src/**/*.js': ['jshint', 'browserify'],
+        'src/**/*.jsx': ['jshint', 'browserify'],
+        'test/**/*.spec.js': ['jshint', 'browserify']
     },
 
     browserify: {

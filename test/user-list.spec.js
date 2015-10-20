@@ -32,9 +32,11 @@ describe('UserList', () => {
       domNode = null;
   
   beforeEach(() => {
+    /* jshint ignore:start */
     component = TestUtils.renderIntoDocument(<UserList users={users} />);
+    /* jshint ignore:end */
     domNode = null;
-  })
+  });
 
   it('should be a list', () => {
     expect(ReactDOM.findDOMNode(component).tagName).toEqual('UL');

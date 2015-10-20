@@ -7,8 +7,10 @@ describe('UserAvatar', () => {
   let component = null;
   
   beforeEach(() => {
+    /* jshint ignore:start */
     component = TestUtils.renderIntoDocument(<UserAvatar picture="user01" />);
-  })
+    /* jshint ignore:end */
+  });
 
   it('should work', () => {
     expect(component).toBeTruthy();
@@ -23,7 +25,9 @@ describe('UserAvatar', () => {
   });
 
   it('should have a given className', () => {
+    /* jshint ignore:start */
     component = TestUtils.renderIntoDocument(<UserAvatar picture="user01" className="givenClass"/>);
+    /* jshint ignore:end */
     expect(ReactDOM.findDOMNode(component).className).toEqual('givenClass');
   });
 

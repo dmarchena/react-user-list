@@ -423,6 +423,9 @@ th {
   padding: 0;
 }
 
+/* -------------------------------------------
+ + js/components/user-info/index.css 
+ + -------------------------------------------*/
 .user_info {
   display: -webkit-flex;
   display: -ms-flexbox;
