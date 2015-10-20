@@ -424,6 +424,16 @@ th {
 }
 
 /* -------------------------------------------- *\
+ * js/components/user-avatar/index.css          *
+\* -------------------------------------------- */
+
+.user__avatar {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 5%;
+}
+/* -------------------------------------------- *\
  * js/components/user-info/index.css            *
 \* -------------------------------------------- */
 
@@ -431,7 +441,13 @@ th {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  margin-bottom: 1.3em;
 }
+
+  .user_info__name,
+  .user_info__city {
+    margin: 0 0 5% 0;
+  }
 /* -------------------------------------------- *\
  * js/components/user-list/index.css            *
 \* -------------------------------------------- */
@@ -440,5 +456,34 @@ th {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-justify-content: space-around;
+      -ms-flex-pack: distribute;
+          justify-content: space-around;
+  padding: 0;
+}
+
+.user_list .user_info {
+  -webkit-flex: 0 1 100%;
+      -ms-flex: 0 1 100%;
+          flex: 0 1 100%;
+}
+
+@media (min-width: 30em) {
+  .user_list .user_info {
+    -webkit-flex-basis: 50%;
+        -ms-flex-preferred-size: 50%;
+            flex-basis: 50%;
+  }
+}
+
+@media (min-width: 64em) {
+  .user_list .user_info {
+    -webkit-flex-basis: 33.333%;
+        -ms-flex-preferred-size: 33.333%;
+            flex-basis: 33.333%;
+  }
 }
 /*# sourceMappingURL=index.css.map */

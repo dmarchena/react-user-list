@@ -1,4 +1,5 @@
 @import "normalize.css";
 
+@import "../js/components/user-avatar/index.css";
 @import "../js/components/user-info/index.css";
 @import "../js/components/user-list/index.css";

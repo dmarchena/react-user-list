@@ -9,7 +9,7 @@ class UserInfo extends React.Component {
       <section className="user_info">
         <UserAvatar picture={picture} className="user_info__avatar" />
         <div className="user_info__body">
-          <h4 className="user_info__name">{this.props.user.name}</h4>
+          <h1 className="user_info__name">{this.props.user.name}</h1>
           <p className="user_info__city">{this.props.user.city}</p>
         </div>
       </section>

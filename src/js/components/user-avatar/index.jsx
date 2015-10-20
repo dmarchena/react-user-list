@@ -2,10 +2,10 @@ import React from 'react';
 
 class UserAvatar extends React.Component {  
   render() {
-      let className = this.props.className || 'user__avatar';
       return (
-        <figure className={className}>
+        <figure className={`user__avatar ${this.props.className}`}>
           <img 
+            height="64px"
             width="64px" 
             src={`http://fakeimg.pl/64x64/?text=${this.props.picture}`} 
           />

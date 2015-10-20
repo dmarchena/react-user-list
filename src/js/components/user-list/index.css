@@ -4,4 +4,23 @@
 
 .user_list {
   display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 0;
+}
+
+.user_list .user_info {
+  flex: 0 1 100%;
+}
+
+@media (min-width: 30em) {
+  .user_list .user_info {
+    flex-basis: 50%;
+  }
+}
+
+@media (min-width: 64em) {
+  .user_list .user_info {
+    flex-basis: 33.333%;
+  }
 }

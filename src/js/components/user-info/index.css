@@ -4,4 +4,10 @@
 
 .user_info {
   display: flex;
+  margin-bottom: 1.3em;
 }
+
+  .user_info__name,
+  .user_info__city {
+    margin: 0 0 5% 0;
+  }
