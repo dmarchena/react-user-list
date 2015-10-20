@@ -1,8 +1,8 @@
 import React from 'react';
-import ReactDOM from 'react/lib/ReactDOM';
-import TestUtils from 'react/lib/ReactTestUtils';
-import UserInfo from '../src/components/js/user-info';
-import UserList from '../src/components/js/user-list';
+import ReactDOM from 'react-dom';
+import TestUtils from 'react-addons-test-utils';
+import UserInfo from '../src/js/components/user-info';
+import UserList from '../src/js/components/user-list';
 
 describe('UserList', () => {
   const users = [
