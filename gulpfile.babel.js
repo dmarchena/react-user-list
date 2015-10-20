@@ -83,8 +83,9 @@ gulp.task('test', (done) => {
 });
 
 gulp.task('watch', function() {
-  gulp.watch([`${config.dirs.js_src}/**/*.js`, `${config.dirs.js_src}/**/*.jsx`], ['build-js'])
-  gulp.watch('./src/**/*.css', ['build-css'])
+  gulp.watch(`${config.dirs.src}/**/*.css`, ['build-css']);
+  gulp.watch([`${config.dirs.js_src}/**/*.js`, `${config.dirs.js_src}/**/*.jsx`], ['build-js']);
+  gulp.watch(`${config.dirs.src}/**/*.html`, ['build-html']);
 });
 
-gulp.task('default', ['serve', 'watch']);
+gulp.task('default', ['build', 'serve', 'watch']);
