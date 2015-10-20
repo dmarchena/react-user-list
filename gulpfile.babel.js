@@ -28,31 +28,48 @@ const config = {
 /**
  * Build app
  */
-gulp.task('build', () => {
-  browserify({
+gulp.task('build', ['build-css', 'build-js', 'build-html']);
+
+gulp.task('build-css', () => {
+  return gulp.src(`${config.dirs.css_src}/index.css`)
+      .pipe(sourcemaps.init())
+      .pipe(postcss([ postcssImport(), autoprefixer({ browsers: ['last 2 versions'] }) ]))
+      .pipe(sourcemaps.write('.'))
+      .pipe(gulp.dest(config.dirs.css_dest));
+});
+
+gulp.task('build-js', () => {
+  let b = browserify({
     entries: `${config.dirs.js_src}/index.jsx`,
     extensions: ['.jsx'],
     debug: true,
     transform: [babelify]
-  })//.transform(babelify)
-    .bundle()
+  });
+  return b.bundle()
     .pipe(source(config.js_bundle_filename))
     .pipe(buffer())
     .pipe(sourcemaps.init({loadMaps: true}))
       .pipe(uglify()) 
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(config.dirs.js_dest));
+});
 
-  gulp.src(`${config.dirs.src}/**/*.html`)
+gulp.task('build-html', () => {
+  return gulp.src(`${config.dirs.src}/**/*.html`)
     .pipe(gulp.dest(config.dirs.dest));
 });
 
-gulp.task('css', function () {
-    return gulp.src(`${config.dirs.css_src}/index.css`)
-        .pipe(sourcemaps.init())
-        .pipe(postcss([ postcssImport(), autoprefixer({ browsers: ['last 2 versions'] }) ]))
-        .pipe(sourcemaps.write('.'))
-        .pipe(gulp.dest(config.dirs.css_dest));
+/**
+ * Start dev server
+ */
+gulp.task('serve', () => {
+  gulp.src(config.dirs.dest)
+    .pipe(webserver({
+      host: '0.0.0.0',
+      port: 8080,
+      fallback: 'index.html',
+      livereload: true
+    }))
 });
 
 /**
@@ -65,16 +82,9 @@ gulp.task('test', (done) => {
   }, done).start();
 });
 
-/**
- * Start dev server
- */
-gulp.task('serve', () => {
-  gulp.src(config.dirs.dest)
-    .pipe(webserver({
-      host: '0.0.0.0',
-      port: 8080,
-      fallback: 'index.html'
-    }))
+gulp.task('watch', function() {
+  gulp.watch([`${config.dirs.js_src}/**/*.js`, `${config.dirs.js_src}/**/*.jsx`], ['build-js'])
+  gulp.watch('./src/**/*.css', ['build-css'])
 });
 
-gulp.task('default', ['serve']);
+gulp.task('default', ['serve', 'watch']);

@@ -423,10 +423,20 @@ th {
   padding: 0;
 }
 
-/* -------------------------------------------
- + js/components/user-info/index.css 
- + -------------------------------------------*/
+/* -------------------------------------------- *\
+ * js/components/user-info/index.css            *
+\* -------------------------------------------- */
+
 .user_info {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+/* -------------------------------------------- *\
+ * js/components/user-list/index.css            *
+\* -------------------------------------------- */
+
+.user_list {
   display: -webkit-flex;
   display: -ms-flexbox;
   display: flex;

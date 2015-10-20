@@ -1,7 +1,7 @@
 /* -------------------------------------------- *\
- * js/components/user-info/index.css            *
+ * js/components/user-list/index.css            *
 \* -------------------------------------------- */
 
-.user_info {
+.user_list {
   display: flex;
 }

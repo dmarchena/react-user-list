@@ -6,7 +6,7 @@ class UserList extends React.Component {
   render() {
     let users = this.props.users || [];
     return(
-      <ul>
+      <ul className="user_list">
         {
           this.props.users.map((user) => {
             return <UserInfo key={user.id} user={user} />
