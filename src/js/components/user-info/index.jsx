@@ -12,7 +12,6 @@ class UserInfo extends React.Component {
           <h4 className="user_info__name">{this.props.user.name}</h4>
           <p className="user_info__city">{this.props.user.city}</p>
         </div>
-        <hr/>
       </section>
     )
   }
