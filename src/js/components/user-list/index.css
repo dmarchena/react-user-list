@@ -24,6 +24,6 @@
 
 @media (min-width: 80em) {
   .user_list__user_info {
-    flex-basis: calc(33% - 1rem);
+    flex-basis: calc(33.33% - 1rem);
   }
 }
