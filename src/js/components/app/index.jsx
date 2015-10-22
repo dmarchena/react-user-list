@@ -1,4 +1,5 @@
 import config from '../../config.js';
+import {parseResponseJson} from '../../helpers/random-user-api.js';
 import React from 'react';
 import UserList from '../user-list';
 
@@ -10,16 +11,25 @@ class UserApp extends React.Component {
   }
 
   componentWillMount() {
-    fetch(`${config.server.url}:${config.server.port}/${config.get.users}`)
+    fetch(config.rest.get.users.url)
       .then((response) => response.json())
-      .then((users) => {
-        this.setState({ users: users });
+      .then((responseData) => {
+        this.setState({ 
+          users: parseResponseJson(responseData)
+        });
       });
+  }
+
+  setUserData(fn) {
+    return this.setState(({data}) => ({
+      data: fn(data)
+    }));
   }
 
   render() {
     if (this.state.users.length > 0) {
-      return <UserList users={this.state.users} />
+      let users = this.state.users;
+      return <UserList users={users} />
     } else {
       return <p>Loading users</p>
     }

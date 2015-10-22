@@ -5,22 +5,25 @@
 .user_list {
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
-  padding: 0;
+  justify-content: flex-start;
+  padding: 0.5rem;
 }
 
-.user_list .user_info {
-  flex: 0 1 100%;
+.user_list__user_info {
+  flex-basis: calc(100% - 1rem);
+  flex-shrink: 0;
+  margin: 0 0.5rem;
+  margin-bottom: 1rem;
 }
 
-@media (min-width: 30em) {
-  .user_list .user_info {
-    flex-basis: 50%;
+@media (min-width: 48em) {
+  .user_list__user_info {
+    flex-basis: calc(50% - 1rem);
   }
 }
 
-@media (min-width: 64em) {
-  .user_list .user_info {
-    flex-basis: 33.333%;
+@media (min-width: 80em) {
+  .user_list__user_info {
+    flex-basis: calc(33% - 1rem);
   }
 }

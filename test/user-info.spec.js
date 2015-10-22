@@ -24,7 +24,7 @@ describe('UserInfo', () => {
   });
 
   it('should have user\'s name', () => {
-    domNode = TestUtils.findRenderedDOMComponentWithClass(component, 'user_info__name');
+    domNode = TestUtils.findRenderedDOMComponentWithClass(component, 'user_info__fullname');
     expect(ReactDOM.findDOMNode(domNode).textContent).toEqual(user.name);
   });
 

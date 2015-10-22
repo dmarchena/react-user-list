@@ -2,7 +2,9 @@
  * js/components/user-avatar/index.css          *
 \* -------------------------------------------- */
 
-.user__avatar {
-  display: flex;
-  margin: 0 5%;
+.user__avatar img {
+  border-radius: 100%;
+  box-shadow: 0 0 2px 1px black;
+  height: 64px;
+  width: 64px;
 }
