@@ -1,5 +1,5 @@
 import React from 'react';
-import UserInfo from '../user-info';
+import UserInfo from './UserInfo';
 
 class UserList extends React.Component {
 
@@ -9,7 +9,11 @@ class UserList extends React.Component {
       <ul className="user_list">
         {
           this.props.users.map((user) => {
-            return <UserInfo key={user.id} user={user} className="user_list__user_info" />
+            return (
+              <li className="user_list__item" key={user.id}>
+                <UserInfo user={user} className="user_list__user_info" />
+              </li>
+            )
           })
         }
       </ul>

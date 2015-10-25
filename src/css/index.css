@@ -9,6 +9,7 @@ html {
         box-sizing: inherit;
     }
 
-@import "../js/components/user-avatar/index.css";
-@import "../js/components/user-info/index.css";
-@import "../js/components/user-list/index.css";
+@custom-media --medium-viewport (min-width: 46.8em);
+@custom-media --big-viewport (min-width: 73em);
+
+@import "./components/_all.css";

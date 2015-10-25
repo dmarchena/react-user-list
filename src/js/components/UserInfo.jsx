@@ -1,5 +1,5 @@
 import React from 'react'; 
-import UserAvatar from '../user-avatar';
+import UserAvatar from './UserAvatar';
 
 class UserInfo extends React.Component {
 
@@ -10,11 +10,11 @@ class UserInfo extends React.Component {
 
     return (
       <section className={className}>
+        <header>
+          <h3 className="user_info__fullname">{this.props.user.fullname}</h3>
+          <p className="user_info__location">{this.props.user.location}</p>
+        </header>
         <UserAvatar user={this.props.user} className="user_info__avatar" />
-        <div className="user_info__body">
-          <h1 className="user_info__fullname">{this.props.user.fullname}</h1>
-          <p className="user_info__city">{this.props.user.city}</p>
-        </div>
       </section>
     );
   }

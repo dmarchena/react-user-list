@@ -1,3 +1,5 @@
+const wordRegExpr = /\w\S*/g;
+
 export function capitalizeWords(str) {
-  return str.replace(/\w\S*/g, (token) => token.charAt(0).toUpperCase() + token.substr(1).toLowerCase());
-};
+  return str.replace(wordRegExpr, (token) => token.charAt(0).toUpperCase() + token.substr(1).toLowerCase());
+}

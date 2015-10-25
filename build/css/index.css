@@ -432,15 +432,91 @@ html {
         box-sizing: inherit;
     }
 
+.header {
+  background: #33f;
+  color: #fff;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0.5em 2%;
+}
+
+  .header__title {
+    display: inline-block;
+    margin: 0;
+    -webkit-flex: 0 1 auto;
+        -ms-flex: 0 1 auto;
+            flex: 0 1 auto;
+  }
+
+  .header__link {
+    background-image: url(http://lyndiweener-kuiper.com/img/github-white.png);
+    display: inline-block;
+    height: 32px;
+    -webkit-flex: 0 0 32px;
+        -ms-flex: 0 0 32px;
+            flex: 0 0 32px;
+    overflow: hidden;
+    text-indent: 100%;
+    white-space: nowrap;
+    width: 32px;
+  }
+.main {
+  padding: 0 3%;
+  margin: 0 0 1em 0;
+}
 /* -------------------------------------------- *\
- * js/components/user-avatar/index.css          *
+ * js/components/user-list/index.css            *
 \* -------------------------------------------- */
 
-.user__avatar img {
-  border-radius: 100%;
-  box-shadow: 0 0 2px 1px black;
-  height: 64px;
-  width: 64px;
+.user_list {
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+          flex-wrap: wrap;
+  -webkit-justify-content: flex-start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  margin: -1rem 0 0 -1rem;
+  padding: 0;
+}
+
+.user_list__item {
+  -webkit-flex-basis: calc(100% - 1rem);
+      -ms-flex-preferred-size: calc(100% - 1rem);
+          flex-basis: calc(100% - 1rem);
+  -webkit-flex-grow: 0;
+      -ms-flex-positive: 0;
+          flex-grow: 0;
+  -webkit-flex-shrink: 0;
+      -ms-flex-negative: 0;
+          flex-shrink: 0;
+  margin: 1rem 0 0 1rem;
+  list-style: none;
+}
+
+@media (min-width: 46.8em) {
+  .user_list__item {
+    -webkit-flex-basis: calc(50% - 1rem);
+        -ms-flex-preferred-size: calc(50% - 1rem);
+            flex-basis: calc(50% - 1rem);
+  }
+}
+
+@media (min-width: 73em) {
+  .user_list__item {
+    -webkit-flex-basis: calc(33.33% - 1rem);
+        -ms-flex-preferred-size: calc(33.33% - 1rem);
+            flex-basis: calc(33.33% - 1rem);
+  }
 }
 /* -------------------------------------------- *\
  * js/components/user-info/index.css            *
@@ -451,13 +527,10 @@ html {
   display: -ms-flexbox;
   display: flex;
   background: #ddd;
-  -webkit-flex: 0 0 auto;
-      -ms-flex: 0 0 auto;
-          flex: 0 0 auto;
   padding: 1rem;
 }
 
-  .user_info__body {
+  .user_info>header {
     display: -webkit-flex;
     display: -ms-flexbox;
     display: flex;
@@ -467,6 +540,9 @@ html {
     -webkit-justify-content: space-around;
         -ms-flex-pack: distribute;
             justify-content: space-around;
+    -webkit-order: 1;
+        -ms-flex-order: 1;
+            order: 1;
   }
 
   .user_info__fullname {
@@ -482,46 +558,13 @@ html {
     margin: 0 1rem 0 0;
   }
 /* -------------------------------------------- *\
- * js/components/user-list/index.css            *
+ * js/components/user-avatar/index.css          *
 \* -------------------------------------------- */
 
-.user_list {
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-flex-wrap: wrap;
-      -ms-flex-wrap: wrap;
-          flex-wrap: wrap;
-  -webkit-justify-content: flex-start;
-      -ms-flex-pack: start;
-          justify-content: flex-start;
-  padding: 0.5rem;
-}
-
-.user_list__user_info {
-  -webkit-flex-basis: calc(100% - 1rem);
-      -ms-flex-preferred-size: calc(100% - 1rem);
-          flex-basis: calc(100% - 1rem);
-  -webkit-flex-shrink: 0;
-      -ms-flex-negative: 0;
-          flex-shrink: 0;
-  margin: 0 0.5rem;
-  margin-bottom: 1rem;
-}
-
-@media (min-width: 48em) {
-  .user_list__user_info {
-    -webkit-flex-basis: calc(50% - 1rem);
-        -ms-flex-preferred-size: calc(50% - 1rem);
-            flex-basis: calc(50% - 1rem);
-  }
-}
-
-@media (min-width: 80em) {
-  .user_list__user_info {
-    -webkit-flex-basis: calc(33% - 1rem);
-        -ms-flex-preferred-size: calc(33% - 1rem);
-            flex-basis: calc(33% - 1rem);
-  }
+.user__avatar img {
+  border-radius: 100%;
+  box-shadow: 0 0 2px 1px black;
+  height: 64px;
+  width: 64px;
 }
 /*# sourceMappingURL=index.css.map */

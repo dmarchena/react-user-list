@@ -1,30 +1,30 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import TestUtils from 'react-addons-test-utils';
-import UserInfo from '../src/js/components/user-info';
-import UserList from '../src/js/components/user-list';
+import UserInfo from '../../src/js/components/UserInfo';
+import UserList from '../../src/js/components/UserList';
 
 describe('UserList', () => {
   const users = [
     {
       id: 1,
-      name: 'Alex Gamarra',
-      city: 'Vitoria-Gasteiz'
+      fullname: 'Alex Gamarra',
+      location: 'Vitoria-Gasteiz'
     },
     {
       id: 2,
-      name: 'Cristina Martínez',
-      city: 'Paris'
+      fullname: 'Cristina Martínez',
+      location: 'Paris'
     },
     {
       id: 3,
-      name: 'Aroa Bilbao',
-      city: 'Mondragón'
+      fullname: 'Aroa Bilbao',
+      location: 'Mondragón'
     },
     {
       id: 4,
-      name: 'Fidel Campos',
-      city: 'Madrid'
+      fullname: 'Fidel Campos',
+      location: 'Madrid'
     }
   ];
 
@@ -38,16 +38,16 @@ describe('UserList', () => {
     domNode = null;
   });
 
-  it('should be a list', () => {
-    expect(ReactDOM.findDOMNode(component).tagName).toEqual('UL');
+  it('should work', () => {
+    expect(component).toBeTruthy();
   });
 
   it('should print all given users', () => {
     domNode = TestUtils.scryRenderedComponentsWithType(component, UserInfo);
     expect(domNode.length).toEqual(4);
-    domNode = TestUtils.scryRenderedDOMComponentsWithClass(component, 'user_info__name');
+    domNode = TestUtils.scryRenderedDOMComponentsWithClass(component, 'user_info__fullname');
     users.forEach((user, index) => {
-      expect(domNode[index].textContent).toEqual(user.name);
+      expect(domNode[index].textContent).toEqual(user.fullname);
     });
   });
 

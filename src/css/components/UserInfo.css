@@ -5,14 +5,14 @@
 .user_info {
   display: flex;
   background: #ddd;
-  flex: 0 0 auto;
   padding: 1rem;
 }
 
-  .user_info__body {
+  .user_info>header {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
+    order: 1;
   }
 
   .user_info__fullname {
@@ -20,7 +20,7 @@
   }
 
   .user_info__fullname,
-  .user_info__city {
+  .user_info__location {
     margin: 0;
   }
 
