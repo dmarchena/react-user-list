@@ -6,7 +6,7 @@ module.exports = {
   size: 10,
   template: {
       id: g.id,
-      name: g.name,
-      city: g.address.city
+      fullname: g.name,
+      location: g.address.city
   }
 };
