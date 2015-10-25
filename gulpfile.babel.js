@@ -6,6 +6,7 @@ import browserify from 'browserify';
 import buffer from 'vinyl-buffer';
 import karma from 'karma';
 import postcss from 'gulp-postcss';
+import postcssCustomMedia from 'postcss-custom-media';
 import postcssImport from 'postcss-import';
 import source from 'vinyl-source-stream';
 import sourcemaps from 'gulp-sourcemaps';
@@ -33,14 +34,14 @@ gulp.task('build', ['build-css', 'build-js', 'build-html']);
 gulp.task('build-css', () => {
   return gulp.src(`${config.dirs.css_src}/index.css`)
       .pipe(sourcemaps.init())
-      .pipe(postcss([ postcssImport(), autoprefixer({ browsers: ['last 2 versions'] }) ]))
+      .pipe(postcss([ postcssImport(), postcssCustomMedia(), autoprefixer({ browsers: ['last 2 versions'] }) ]))
       .pipe(sourcemaps.write('.'))
       .pipe(gulp.dest(config.dirs.css_dest));
 });
 
 gulp.task('build-js', () => {
   let b = browserify({
-    entries: `${config.dirs.js_src}/index.jsx`,
+    entries: `${config.dirs.js_src}/app.jsx`,
     extensions: ['.jsx'],
     debug: true,
     transform: [babelify]
