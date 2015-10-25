@@ -4,15 +4,16 @@ function parseUser(userJson) {
   return {
     id: userJson.registered,
     fullname: capitalizeWords(`${userJson.name.first} ${userJson.name.last}`),
-    city: capitalizeWords(userJson.location.city),
+    location: capitalizeWords(`${userJson.location.city}, ${userJson.location.state}`),
     picture: userJson.picture.thumbnail
-  }
+  };
 }
 
 export function parseResponseJson(json) {
-  let results = [];
-  for (let r of json.results) {
-    results.push(parseUser(r.user));
+  let input = json.results || [],
+      output = [];
+  for (let r of input) {
+    output.push(parseUser(r.user));
   }
-  return results;
+  return output;
 }
