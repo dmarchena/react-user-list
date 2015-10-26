@@ -20,7 +20,7 @@ describe('UserAvatar', () => {
   });
 
   it('should have an img of user', () => {
-    let domNode = TestUtils.findRenderedDOMComponentWithTag(component, 'img');
+    const domNode = TestUtils.findRenderedDOMComponentWithTag(component, 'img');
     expect(ReactDOM.findDOMNode(domNode).src).toEqual('http://valid.url/to/a/img.jpg');
   });
 
@@ -36,7 +36,7 @@ describe('UserAvatar', () => {
   });
 
   it('should show a placeholder if user has no avatar', () => {
-    let userNoAvatar = {
+    const userNoAvatar = {
       id: 1,
       fullname: 'Alex Gamarra',
       location: 'Vitoria-Gasteiz'
@@ -44,8 +44,7 @@ describe('UserAvatar', () => {
     /* jshint ignore:start */
     component = TestUtils.renderIntoDocument(<UserAvatar user={userNoAvatar}/>);
     /* jshint ignore:end */
-    let domNode = TestUtils.findRenderedDOMComponentWithTag(component, 'img');
+    const domNode = TestUtils.findRenderedDOMComponentWithTag(component, 'img');
     expect(ReactDOM.findDOMNode(domNode).src).toEqual('http://fakeimg.pl/64x64/?text=no%20photo');
   });
-
 });

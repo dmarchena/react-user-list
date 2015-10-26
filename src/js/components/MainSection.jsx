@@ -8,8 +8,8 @@ class MainSection extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      loading: false, 
-      users: [] 
+      loading: false,
+      users: []
     };
   }
 
@@ -18,13 +18,13 @@ class MainSection extends React.Component {
   }
 
   fetchUsers() {
-    this.setState({ 
+    this.setState({
       loading: true
     });
     fetch(config.rest.get.users.url)
       .then((response) => response.json())
       .then((responseData) => {
-        this.setState({ 
+        this.setState({
           loading: false,
           users: parseResponseJson(responseData)
         });
@@ -35,8 +35,8 @@ class MainSection extends React.Component {
     return (
       <section className="main">
         <h2 className="main__title">User list</h2>
-        { 
-          (this.state.loading) 
+        {
+          (this.state.loading)
             ? <p>Loading users...</p>
             : <UserList users={this.state.users} />
         }

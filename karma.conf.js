@@ -15,9 +15,9 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-        './node_modules/phantomjs-polyfill/bind-polyfill.js',
-        'src/**/*.js',
-        'test/**/*.spec.js'
+      './node_modules/phantomjs-polyfill/bind-polyfill.js',
+      'src/**/*.js',
+      'test/**/*.spec.js'
     ],
 
 
@@ -29,36 +29,48 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-        'src/**/*.js': ['jshint', 'browserify'],
-        'src/**/*.jsx': ['jshint', 'browserify'],
-        'test/**/*.spec.js': ['jshint', 'browserify']
+      'src/**/*.js': ['browserify', 'coverage'],
+      'src/**/*.jsx': ['browserify', 'coverage'],
+      'test/**/*.spec.js': ['browserify']
     },
 
     browserify: {
-        debug: true,
-        extensions: ['.js', '.jsx'],
-        transform: ['babelify']
+      debug: true,
+      extensions: ['.js', '.jsx'],
+      transform: ['babelify', 'browserify-istanbul']
     },
 
     watchify: {
       poll: true
     },
 
-    jshintPreprocessor: {
-        jshintrc: './.jshintrc'
+    eslint: {
+      stopOnError: true,
+      stopOnWarning: true
     },
 
     plugins: [
-        'karma-browserify',
-        'karma-jasmine',
-        'karma-jshint-preprocessor',
-        'karma-phantomjs-launcher'
+      'karma-browserify',
+      'karma-coverage',
+      'karma-jasmine',
+      'karma-phantomjs-launcher'
     ],
 
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['progress'],
+    reporters: ['progress', 'coverage'],
+
+    coverageReporter: {
+        instrumenters: { 'istanbul-react': require( 'istanbul-react') },
+        instrumenter: {
+            'src/**/*.{js,jsx}': [ 'istanbul-react' ]
+        },
+        reporters: [
+            { type: 'text' },
+            { type: 'html', dir: 'coverage', subdir: 'reports' }
+        ]
+    },
 
 
     // web server port
@@ -71,7 +83,7 @@ module.exports = function(config) {
 
     // level of logging
     // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
-    logLevel: config.LOG_INFO,
+    logLevel: config.LOG_DISABLE, // Disabled because an istanbul html bug: https://github.com/tsargent/styleguide/commit/c5c2f78fa3712ddc0110e20c006c59a5e67d594d
 
 
     // enable / disable watching file and executing tests whenever any file changes
@@ -85,7 +97,7 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: false
+    singleRun: true
 
   })
 }

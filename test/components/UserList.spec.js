@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import TestUtils from 'react-addons-test-utils';
 import UserInfo from '../../src/js/components/UserInfo';
 import UserList from '../../src/js/components/UserList';
@@ -28,14 +27,10 @@ describe('UserList', () => {
     }
   ];
 
-  let component = null,
-      domNode = null;
-  
+  let component = null;
+
   beforeEach(() => {
-    /* jshint ignore:start */
     component = TestUtils.renderIntoDocument(<UserList users={users} />);
-    /* jshint ignore:end */
-    domNode = null;
   });
 
   it('should work', () => {
@@ -43,12 +38,11 @@ describe('UserList', () => {
   });
 
   it('should print all given users', () => {
-    domNode = TestUtils.scryRenderedComponentsWithType(component, UserInfo);
+    let domNode = TestUtils.scryRenderedComponentsWithType(component, UserInfo);
     expect(domNode.length).toEqual(4);
     domNode = TestUtils.scryRenderedDOMComponentsWithClass(component, 'user_info__fullname');
     users.forEach((user, index) => {
       expect(domNode[index].textContent).toEqual(user.fullname);
     });
   });
-
 });

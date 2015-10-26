@@ -10,10 +10,17 @@ function parseUser(userJson) {
 }
 
 export function parseResponseJson(json) {
-  let input = json.results || [],
-      output = [];
+  const input = json.results || [];
+  const output = [];
+  // ES7: return [for (let r of input) parseUser(r.user)];
+  /*
+  // ES6: Commented to avoid a Jasmine strange error
   for (let r of input) {
     output.push(parseUser(r.user));
   }
+  */
+  input.forEach((r) => {
+    output.push(parseUser(r.user));
+  });
   return output;
 }

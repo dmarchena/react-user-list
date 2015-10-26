@@ -1,10 +1,9 @@
-import React from 'react'; 
+import React from 'react';
 import UserAvatar from './UserAvatar';
 
 class UserInfo extends React.Component {
-
   render() {
-    let className = (this.props.className) ?
+    const className = (this.props.className) ?
       `user_info ${this.props.className}` :
       'user_info';
 
@@ -18,7 +17,11 @@ class UserInfo extends React.Component {
       </section>
     );
   }
-
 }
+
+UserInfo.propTypes = {
+  className: React.PropTypes.string,
+  user: React.PropTypes.object.isRequired
+};
 
 export default UserInfo;
