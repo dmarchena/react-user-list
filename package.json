@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "mocks": "dyson mocksServer",
-    "test": "karma start ./karma.conf.js",
+    "test": "karma start --browsers Firefox --single-run",  // Travis
+    "test-dev": "karma start ./karma.conf.js",              // Development
     "lint": "eslint --ext js --ext jsx src test"
   },
   "repository": {
