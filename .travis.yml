@@ -9,6 +9,7 @@ before_install:
 install:
   - sudo apt-get install -qq g++-4.8
   - export CXX="g++-4.8"
+  - npm install
 before_script:
   - export DISPLAY=:99.0
   - sh -e /etc/init.d/xvfb start
