@@ -52,6 +52,7 @@ module.exports = function(config) {
     plugins: [
       'karma-browserify',
       'karma-coverage',
+      'karma-firefox-launcher',
       'karma-jasmine',
       'karma-phantomjs-launcher'
     ],
@@ -92,7 +93,7 @@ module.exports = function(config) {
 
     // start these browsers
     // available browser launchers: https://npmjs.org/browse/keyword/karma-launcher
-    browsers: ['PhantomJS'],
+    //browsers: [ process.env.CONTINUOUS_INTEGRATION ? 'Firefox' : 'PhantomJS' ]
 
 
     // Continuous Integration mode
