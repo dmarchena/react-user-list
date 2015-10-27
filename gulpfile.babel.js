@@ -4,6 +4,7 @@ import autoprefixer from 'autoprefixer';
 import babelify from 'babelify';
 import browserify from 'browserify';
 import buffer from 'vinyl-buffer';
+import cssnano from 'cssnano';
 import karma from 'karma';
 import postcss from 'gulp-postcss';
 import postcssCustomMedia from 'postcss-custom-media';
@@ -29,12 +30,22 @@ const config = {
 /**
  * Build app
  */
-gulp.task('build', ['build-css', 'build-js', 'build-html']);
+gulp.task('build', ['build-css', 'build-js', 'build-html'], () => {
+  //Copy images
+  return gulp.src(`${config.dirs.src}/img/**/*`)
+    .pipe(gulp.dest(`${config.dirs.dest}/img/`));
+});
 
 gulp.task('build-css', () => {
+  let postcssProcessors = [ 
+    postcssImport, 
+    postcssCustomMedia, 
+    autoprefixer({ browsers: ['last 2 versions'] }),
+    cssnano
+  ];
   return gulp.src(`${config.dirs.css_src}/index.css`)
       .pipe(sourcemaps.init())
-      .pipe(postcss([ postcssImport(), postcssCustomMedia(), autoprefixer({ browsers: ['last 2 versions'] }) ]))
+      .pipe(postcss(postcssProcessors))
       .pipe(sourcemaps.write('.'))
       .pipe(gulp.dest(config.dirs.css_dest));
 });
