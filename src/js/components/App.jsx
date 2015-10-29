@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer from './Footer';
 import Header from './Header';
 import MainSection from './MainSection';
 
@@ -8,6 +9,7 @@ class App extends React.Component {
       <div>
         <Header />
         <MainSection />
+        <Footer />
       </div>
     );
   }
