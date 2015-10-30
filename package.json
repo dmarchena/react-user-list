@@ -65,6 +65,7 @@
   },
   "dependencies": {
     "postcss-custom-media": "^5.0.0",
-    "react": "^0.14.0"
+    "react": "^0.14.0",
+    "whatwg-fetch": "^0.10.0"
   }
 }

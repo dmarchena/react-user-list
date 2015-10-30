@@ -1,3 +1,4 @@
+import 'whatwg-fetch';
 import config from '../app.conf.js';
 import {parseResponseJson} from '../helpers/random-user-api.js';
 import React from 'react';
