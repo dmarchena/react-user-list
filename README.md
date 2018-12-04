@@ -6,3 +6,7 @@ Sample user list with React + ES6. It's only my first approach to React.js, but 
 
 Demo here: [http://dmarchena.github.io/react-user-list/](http://dmarchena.github.io/react-user-list/)
 
+## Notice
+
+**This project is outdated. Last commit was sent to fix the demo and adapt it to changes made in Random User Generator API.**
+
