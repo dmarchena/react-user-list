@@ -18,11 +18,11 @@ const config = {
   css_bundle_filename: 'index.css',
   dirs : {
     src: './src',
-    dest: './build',
+    dest: './docs',
     css_src: './src/css/',
-    css_dest: './build/css/',
+    css_dest: './docs/css/',
     js_src: './src/js',
-    js_dest: './build/js'
+    js_dest: './docs/js'
   },
   js_bundle_filename: 'bundle.js'
 };

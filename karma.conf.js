@@ -63,15 +63,13 @@ module.exports = function(config) {
     reporters: ['progress', 'coverage'],
 
     coverageReporter: {
-        instrumenters: { 'istanbul-react': require( 'istanbul-react') },
-        instrumenter: {
-            'src/**/*.{js,jsx}': [ 'istanbul-react' ]
-        },
-        reporters: [
-            { type: 'text' },
-            { type: 'html', dir: 'coverage', subdir: 'reports' },
-            { type: 'lcov', dir: 'coverage', subdir: 'coveralls' }
-        ]
+      instrumenters: { 'istanbul-react': require( 'istanbul-react') },
+      instrumenter: {
+        'src/**/*.{js,jsx}': [ 'istanbul-react' ]
+      },
+      reporters: [
+        { type: 'lcov', dir: 'coverage', subdir: 'coveralls' }
+      ]
     },
 
 
@@ -101,5 +99,5 @@ module.exports = function(config) {
     // if true, Karma captures browsers, runs the tests and exits
     singleRun: true
 
-  })
-}
+  });
+};
